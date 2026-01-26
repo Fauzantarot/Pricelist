@@ -2,389 +2,293 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#1a1a1a">
-    <title>The Royal Wedding of Zaenal & Irma</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Pinyon+Script&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dandelion Bouquet | Bouquet for Every Moment</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Palette Warna Mewah */
-            --bg-dark: #0f0f0f;
-            --bg-paper: #1a1a1a;
-            --gold-light: #f3e5b4;
-            --gold-dark: #b88a44;
-            --text-grey: #cccccc;
-            /* Gradient Emas Foil */
-            --gold-gradient: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --primary-sage: #587361;   /* Sage Green dari logo */
+            --accent-blue: #a8cad2;    /* Soft Blue dari bunga dandelion */
+            --bg-cream: #fcfbf7;      /* Warna background hangat */
+            --text-dark: #2f3e35;
+            --serif: 'Playfair Display', serif;
+            --sans: 'Inter', sans-serif;
         }
 
-        /* --- BASE STYLES --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-grey);
-            font-family: 'Lato', sans-serif;
-            overflow-x: hidden;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            font-family: var(--sans);
+            line-height: 1.7;
+            scroll-behavior: smooth;
         }
 
-        /* Typography "Mahal" */
-        h1, h2, h3 { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; color: white; }
-        .font-script { 
-            font-family: 'Pinyon Script', cursive; 
-            text-transform: none; 
-            letter-spacing: 0;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 400;
-        }
-        
-        /* Container HP */
-        .mobile-container {
-            max-width: 480px; margin: 0 auto;
-            background: var(--bg-paper);
-            min-height: 100vh;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            position: relative;
-            background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
-        }
-
-        /* --- GLASSMORPHISM CARD (Efek Kaca) --- */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
-        /* --- COVER SECTION (FULLSCREEN) --- */
-        #cover {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;
-            background: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1000&q=80') center/cover;
-            display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
-            text-align: center; padding-bottom: 80px;
-        }
-        .cover-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,1) 10%, rgba(0,0,0,0.4) 80%);
-            z-index: -1;
-        }
-        .gunungan { width: 60px; filter: invert(1); margin-bottom: 10px; opacity: 0.8; }
-        
-        /* Tombol Buka Premium */
-        .btn-gold {
-            background: var(--gold-gradient);
-            color: #4a3b18;
-            padding: 12px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-family: 'Cinzel', serif;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(191, 149, 63, 0.4);
-            animation: pulse 2s infinite;
-            margin-top: 20px;
-        }
-        @keyframes pulse { 0% {box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.7);} 70% {box-shadow: 0 0 0 15px rgba(191, 149, 63, 0);} 100% {box-shadow: 0 0 0 0 rgba(191, 149, 63, 0);} }
-
-        /* --- CONTENT SECTIONS --- */
-        section { padding: 60px 20px; position: relative; }
-        
-        /* Hero Portrait */
-        .hero-img {
-            width: 100%; height: 450px;
-            object-fit: cover; border-radius: 0 0 150px 150px;
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        }
-
-        /* Couple Circle - UPDATED AGAR LEBIH LUAS */
-        .couple-wrapper {
+        /* NAVIGATION */
+        nav {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 40px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 8%;
         }
-        .couple-single {
-            flex: 1 1 160px; /* Agar responsif */
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--primary-sage);
+            text-transform: uppercase;
+        }
+
+        nav ul { list-style: none; display: flex; align-items: center; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--primary-sage);
+        }
+
+        .hero p {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .btn-main {
+            display: inline-block;
+            border: 1px solid var(--primary-sage);
+            color: var(--primary-sage);
+            padding: 15px 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            transition: 0.4s;
+        }
+
+        .btn-main:hover {
+            background: var(--primary-sage);
+            color: #fff;
+        }
+
+        /* SECTION TITLES */
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-family: var(--serif); font-size: 2rem; color: var(--primary-sage); }
+        .line { width: 40px; height: 1px; background: var(--accent-blue); margin: 15px auto; }
+
+        /* GALLERY */
+        .gallery { padding: 6rem 8%; background: #fff; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .card { text-align: center; }
+        .img-box { 
+            background: var(--bg-cream); 
+            aspect-ratio: 4/5; 
+            margin-bottom: 1.5rem; 
+            overflow: hidden;
+        }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
+        .card:hover img { transform: scale(1.05); }
+
+        .card h3 { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 5px; }
+        .card p { font-size: 0.85rem; text-transform: uppercase; color: var(--primary-sage); letter-spacing: 1px; }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            padding: 8rem 8%;
+            background-color: var(--bg-cream);
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testi-item {
+            background: #fff;
+            padding: 40px;
+            text-align: left;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .testi-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .quote-icon {
+            font-family: var(--serif);
+            font-size: 3rem;
+            color: var(--accent-blue);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .testi-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .testi-author {
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-sage);
+        }
+
+        /* FOOTER & ADDRESS */
+        footer {
+            padding: 5rem 8%;
+            background: #fff;
             text-align: center;
         }
-        .couple-photo {
-            width: 100%;
-            max-width: 220px; /* Lebar maksimal diperbesar */
-            height: 280px; /* Tinggi diperbesar */
-            object-fit: cover;
-            border-radius: 25px; /* Sudut membulat, bukan lonjong */
-            border: 3px solid var(--gold-dark); /* Bingkai lebih tebal */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4); /* Bayangan lebih dalam */
-            transition: transform 0.5s;
+
+        .address {
+            font-size: 0.85rem;
+            max-width: 500px;
+            margin: 20px auto;
+            color: var(--text-dark);
+            opacity: 0.7;
         }
-        .couple-photo:hover { transform: scale(1.03); }
-        .couple-divider { font-size: 3rem; color: var(--gold-dark); font-family: 'Pinyon Script'; align-self: center; }
 
-        /* Timeline & Events */
-        .event-title { color: var(--gold-light); font-size: 1.5rem; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; display: inline-block; }
-        .event-detail i { color: var(--gold-dark); margin-right: 8px; }
-
-        /* Countdown */
-        .timer-grid { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
-        .timer-box { background: rgba(255,255,255,0.08); padding: 10px; border-radius: 8px; min-width: 65px; border: 1px solid rgba(191, 149, 63, 0.2); }
-        .timer-val { font-size: 1.5rem; color: white; font-weight: bold; display: block; }
-        .timer-label { font-size: 0.7rem; text-transform: uppercase; color: var(--gold-light); }
-
-        /* Gallery Grid */
-        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; filter: grayscale(20%); transition: 0.5s; }
-        .gallery img:hover { filter: grayscale(0%); transform: scale(1.02); }
-
-        /* Bottom Navbar (Menu Bawah) */
-        .navbar {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            width: 92%; max-width: 420px;
-            background: rgba(20, 20, 20, 0.9); backdrop-filter: blur(15px);
-            border-radius: 50px; padding: 10px 25px;
-            display: none; justify-content: space-between; align-items: center;
-            border: 1px solid rgba(255,255,255,0.1); z-index: 100;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-sage);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            z-index: 100;
         }
-        .nav-item { color: #888; text-decoration: none; font-size: 1.2rem; transition: 0.3s; position: relative; }
-        .nav-item.active, .nav-item:hover { color: var(--gold-light); transform: translateY(-3px); }
-        
-        /* Music Spinner */
-        .music-spin { animation: spin 4s linear infinite; }
-        @keyframes spin { 100% {transform: rotate(360deg);} }
 
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            nav { padding: 1.5rem 5%; }
+            .testi-item { padding: 30px; }
+        }
     </style>
 </head>
 <body>
 
-    <div id="cover">
-        <div class="cover-overlay"></div>
-        <div data-aos="fade-up" style="position: relative; z-index: 2; width: 80%;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3593/3593655.png" class="gunungan">
-            <p style="letter-spacing: 4px; font-size: 0.8rem; color: var(--gold-light); margin-bottom: 10px;">THE WEDDING OF</p>
-            <h1 class="font-script" style="font-size: 4rem; line-height: 0.8; margin-bottom: 20px;">Zaenal <br> & Irma</h1>
-            
-            <div class="glass-card" style="padding: 15px; margin-top: 30px;">
-                <p style="font-size: 0.8rem;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-                <h3 id="guest-name" style="margin-top: 10px; color: white;">Tamu Spesial</h3>
-            </div>
-
-            <button class="btn-gold" onclick="openInvitation()">
-                <i class="fas fa-envelope-open-text"></i> Buka Undangan
-            </button>
-        </div>
-    </div>
-
-
-    <div class="mobile-container" id="main-content" style="display: none;">
-        
-        <div style="position: relative;">
-            <img src="https://images.unsplash.com/photo-1604061986761-d9d0cc49b068?auto=format&fit=crop&w=800&q=80" class="hero-img">
-            <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; text-align: center; background: linear-gradient(to top, var(--bg-paper), transparent);">
-                <p style="letter-spacing: 3px; color: var(--gold-light);">30 . 01 . 2026</p>
-            </div>
-        </div>
-
-        <section id="home">
-            <div data-aos="fade-up">
-                <img src="https://cdn-icons-png.flaticon.com/512/1703/1703926.png" width="40" style="filter: invert(1); opacity: 0.5; margin-bottom: 20px;">
-                <h2 style="font-size: 1.2rem; line-height: 1.6; text-transform: none; color: var(--text-grey);">
-                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya."
-                </h2>
-                <p style="margin-top: 10px; color: var(--gold-dark);">(QS. Ar-Rum: 21)</p>
-            </div>
-        </section>
-
-        <section id="couple" style="background: #151515;">
-            <h2 style="text-align: center; color: var(--gold-light);">Mempelai</h2>
-            
-            <div class="couple-wrapper" data-aos="zoom-in">
-                <div class="couple-single">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" class="couple-photo">
-                    <h3 style="margin-top: 15px; font-size: 1.2rem;">Zaenal Arifin</h3>
-                    <p style="font-size: 0.8rem;">Putra Bpk. Somad</p>
-                </div>
-                <div class="couple-divider">&</div>
-                <div class="couple-single">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" class="couple-photo">
-                    <h3 style="margin-top: 15px; font-size: 1.2rem;">Irma Kurnia</h3>
-                    <p style="font-size: 0.8rem;">Putri Bpk. Wagino</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="story">
-            <h2 style="text-align: center; margin-bottom: 30px; color: var(--gold-light);">Perjalanan Cinta</h2>
-
-            <div class="glass-card" data-aos="fade-up">
-                <h3 class="font-script" style="font-size: 1.8rem;">Pertemuan Pertama</h3>
-                <p style="color: var(--gold-dark); margin-bottom: 10px; font-weight: bold;">Januari 2022</p>
-                <p>Kami bertemu pertama kali di sebuah acara kerabat di Lampung. Sebuah perkenalan sederhana yang berkesan.</p>
-            </div>
-
-            <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="font-script" style="font-size: 1.8rem;">Menjalin Kasih</h3>
-                <p style="color: var(--gold-dark); margin-bottom: 10px; font-weight: bold;">Maret 2023</p>
-                <p>Setelah saling mengenal, kami memutuskan untuk membangun komitmen dan melangkah ke jenjang yang lebih serius.</p>
-            </div>
-
-             <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="font-script" style="font-size: 1.8rem;">Lamaran</h3>
-                <p style="color: var(--gold-dark); margin-bottom: 10px; font-weight: bold;">Oktober 2025</p>
-                <p>Dengan restu kedua orang tua, Zaenal resmi melamar Irma untuk menjadi pendamping hidupnya.</p>
-            </div>
-        </section>
-
-        <section id="event">
-            <div class="glass-card" data-aos="fade-up">
-                <h3 class="event-title">Akad Nikah</h3>
-                <div class="event-detail">
-                    <p><i class="far fa-calendar-alt"></i> Minggu, 30 Januari 2026</p>
-                    <p><i class="far fa-clock"></i> 09.00 WIB - Selesai</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Gg. Sombo, Jl. Beringin, Kotabumi</p>
-                </div>
-                
-                <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.2); margin: 20px 0;">
-
-                <h3 class="event-title">Resepsi</h3>
-                <div class="event-detail">
-                    <p><i class="fas fa-glass-cheers"></i> Minggu, 11 Januari 2026</p>
-                    <p><i class="far fa-clock"></i> 11.00 WIB - Selesai</p>
-                </div>
-
-                <div class="timer-grid">
-                    <div class="timer-box"><span id="d" class="timer-val">00</span><span class="timer-label">Hari</span></div>
-                    <div class="timer-box"><span id="h" class="timer-val">00</span><span class="timer-label">Jam</span></div>
-                    <div class="timer-box"><span id="m" class="timer-val">00</span><span class="timer-label">Menit</span></div>
-                </div>
-
-                <a href="https://goo.gl/maps/contoh" target="_blank" class="btn-gold" style="display: block; text-align: center; text-decoration: none; margin-top: 25px; font-size: 0.9rem;">
-                    Lihat Lokasi
-                </a>
-            </div>
-        </section>
-
-        <section id="gallery">
-            <h2 style="text-align: center; margin-bottom: 20px;">Galeri Momen</h2>
-            <div class="gallery">
-                <img src="https://images.unsplash.com/photo-1623827953120-2c9c46451169?auto=format&fit=crop&w=400&q=80" data-aos="fade-right">
-                <img src="https://images.unsplash.com/photo-1616165484084-b2a30c770879?auto=format&fit=crop&w=400&q=80" data-aos="fade-left">
-                <img src="https://images.unsplash.com/photo-1583995376786-9823e3653e31?auto=format&fit=crop&w=400&q=80" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1610043809063-2c6eb1e33e08?auto=format&fit=crop&w=400&q=80" data-aos="fade-up">
-            </div>
-        </section>
-
-        <section id="rsvp">
-            <div class="glass-card" style="text-align: center;" data-aos="zoom-in">
-                <i class="fas fa-gift fa-2x" style="color: var(--gold-dark); margin-bottom: 15px;"></i>
-                <h3>Wedding Gift</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 20px;">Doa restu Anda adalah kado terbaik bagi kami.</p>
-                
-                <div style="background: white; color: black; padding: 15px; border-radius: 10px; margin-bottom: 10px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png" width="80" style="display: block; margin: 0 auto 10px auto;">
-                    <p style="font-weight: bold; font-size: 1.2rem;" id="norek">1234567890</p>
-                    <p style="font-size: 0.8rem;">a.n Zaenal Arifin</p>
-                </div>
-                <button onclick="copyText()" style="background: transparent; border: 1px solid var(--gold-light); color: var(--gold-light); padding: 5px 15px; border-radius: 20px; cursor: pointer;">Salin No. Rek</button>
-            </div>
-        </section>
-
-        <section style="text-align: center; padding-bottom: 150px;">
-            <h1 class="font-script" style="font-size: 3rem;">Terima Kasih</h1>
-            <p>Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i</p>
-        </section>
-
-    </div>
-
-    <nav class="navbar" id="navbar">
-        <a href="#home" class="nav-item"><i class="fas fa-home"></i></a>
-        <a href="#couple" class="nav-item"><i class="fas fa-user-friends"></i></a>
-        
-        <div onclick="toggleMusic()" class="nav-item" style="background: var(--gold-gradient); width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-top: -30px; border: 4px solid var(--bg-paper); color: #4a3b18; cursor: pointer; box-shadow: 0 -5px 20px rgba(191, 149, 63, 0.3);">
-            <i class="fas fa-music" id="music-icon"></i>
-        </div>
-        
-        <a href="#story" class="nav-item"><i class="fas fa-heart"></i></a>
-        <a href="#event" class="nav-item"><i class="fas fa-calendar-alt"></i></a>
+    <nav>
+        <div class="logo">Dandelion Bouquet</div>
+        <ul>
+            <li><a href="#koleksi">Gallery</a></li>
+            <li><a href="#testimoni" style="margin-left: 20px;">Review</a></li>
+        </ul>
     </nav>
 
-    <audio id="bg-music" loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7314781483.mp3?filename=piano-moment-11634.mp3" type="audio/mpeg">
-    </audio>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Handmade & Custom<br>Bouquets</h1>
+            <p>"Bouquet for Every Moment"</p>
+            <a href="#koleksi" class="btn-main">Lihat Koleksi</a>
+        </div>
+    </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // NAMA TAMU
-        const params = new URLSearchParams(window.location.search);
-        const name = params.get('kpd');
-        if(name) document.getElementById('guest-name').innerText = name;
-
-        // BUKA UNDANGAN
-        const music = document.getElementById('bg-music');
-        const icon = document.getElementById('music-icon');
+    <section id="koleksi" class="gallery">
+        <div class="section-title">
+            <h2>Our Specialities</h2>
+            <div class="line"></div>
+        </div>
         
-        function openInvitation() {
-            const cover = document.getElementById('cover');
-            cover.style.transition = 'opacity 1s ease, transform 1s ease';
-            cover.style.opacity = 0;
-            cover.style.transform = 'scale(1.1)';
-            
-            setTimeout(() => {
-                cover.style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
-                document.getElementById('navbar').style.display = 'flex';
-                music.play();
-                icon.classList.add('music-spin');
-                AOS.refresh();
-            }, 1000);
-        }
+        <div class="grid">
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1591880911020-d3494122b6a2?q=80&w=800" alt="Money Bouquet"></div>
+                <h3>Money Bouquet</h3>
+                <p>Custom & Elegant</p>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800" alt="Flower Bouquet"></div>
+                <h3>Flower Bouquet</h3>
+                <p>Fresh & Artificial</p>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1582910814900-24424e7c7b91?q=80&w=800" alt="Snack Bouquet"></div>
+                <h3>Snack Bouquet</h3>
+                <p>For Every Celebration</p>
+            </div>
+        </div>
+    </section>
 
-        // MUSIK CONTROL
-        function toggleMusic() {
-            if(music.paused) {
-                music.play();
-                icon.classList.add('music-spin');
-                icon.classList.remove('fa-pause');
-                icon.classList.add('fa-music');
-            } else {
-                music.pause();
-                icon.classList.remove('music-spin');
-                icon.classList.remove('fa-music');
-                icon.classList.add('fa-pause');
-            }
-        }
+    <section id="testimoni" class="testimonials">
+        <div class="section-title">
+            <h2>Apa Kata Mereka?</h2>
+            <div class="line"></div>
+        </div>
 
-        // COPY REKENING
-        function copyText() {
-            const num = document.getElementById('norek').innerText;
-            navigator.clipboard.writeText(num);
-            alert("Nomor Rekening Disalin!");
-        }
+        <div class="testi-grid">
+            <div class="testi-item">
+                <div class="quote-icon">“</div>
+                <p class="testi-text">Buketnya rapi banget dan detailnya premium. Padahal pesan dadakan tapi hasilnya tetap maksimal. Sangat recommended di Malunda!</p>
+                <p class="testi-author">— Sarah, Pelanggan Setia</p>
+            </div>
 
-        // COUNTDOWN
-        const target = new Date("Jan 30, 2026 09:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = target - now;
-            document.getElementById('d').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById('h').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById('m').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        }, 1000);
-    </script>
+            <div class="testi-item">
+                <div class="quote-icon">“</div>
+                <p class="testi-text">Suka banget sama kombinasi warnanya. Seller-nya ramah dan komunikatif buat diskusi model yang saya mau.</p>
+                <p class="testi-author">— Ahmad, Majene</p>
+            </div>
+
+            <div class="testi-item">
+                <div class="quote-icon">“</div>
+                <p class="testi-text">Money bouquet-nya elegan, nggak kelihatan norak. Cocok buat hadiah wisuda atau lamaran.</p>
+                <p class="testi-author">— Rina, Lingk. Sasende</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/628xxxxxxxx" class="wa-float" target="_blank">Order via WhatsApp</a>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 10px;">Dandelion Bouquet</div>
+        <p class="address">
+            Jln. Bambu Runcing, Lingk. Sasende, Kec. Malunda, <br>
+            Majene, Sulawesi Barat, 91453
+        </p>
+        <p style="font-size: 0.7rem; margin-top: 30px; opacity: 0.5;">&copy; 2026 Dandelion Bouquet. Crafted with Love.</p>
+    </footer>
+
 </body>
 </html>
