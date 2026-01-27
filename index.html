@@ -1,294 +1,271 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dandelion Bouquet | Bouquet for Every Moment</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pricelist | Fauzan Teman Perubahan</title>
+  <link rel="icon" href="https://i.imgur.com/EKbMawI.jpg">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* --- RESET & DASAR (SAMA DENGAN INDEX) --- */
+    :root {
+      --bg-dark: #0f0518;
+      --gold-accent: #d4af37; 
+      --gold-light: #f3e5ab;
+      --text-main: #e0e0e0;
+      --glass-bg: rgba(20, 5, 30, 0.75);
+    }
 
-    <style>
-        :root {
-            --primary-sage: #587361;   /* Sage Green dari logo */
-            --accent-blue: #a8cad2;    /* Soft Blue dari bunga dandelion */
-            --bg-cream: #fcfbf7;      /* Warna background hangat */
-            --text-dark: #2f3e35;
-            --serif: 'Playfair Display', serif;
-            --sans: 'Inter', sans-serif;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Lora', serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-        body {
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            font-family: var(--sans);
-            line-height: 1.7;
-            scroll-behavior: smooth;
-        }
+    /* Background Image Identik dengan Halaman Utama */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('https://i.imgur.com/XMpaq1Z.jpeg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4) blur(2px);
+      z-index: -1;
+    }
 
-        /* NAVIGATION */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 8%;
-        }
+    .container {
+      width: 90%;
+      max-width: 900px; /* Diperlebar sedikit untuk grid harga */
+      margin: 60px auto 40px auto;
+      padding: 40px 30px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      text-align: center;
+      animation: fadeIn 1.2s ease-out;
+    }
 
-        .logo {
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-            color: var(--primary-sage);
-            text-transform: uppercase;
-        }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-accent);
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
 
-        nav ul { list-style: none; display: flex; align-items: center; }
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .subtitle {
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1rem;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
 
-        /* HERO SECTION */
-        .hero {
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 10%;
-        }
+    /* --- PRICING GRID --- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
 
-        .hero h1 {
-            font-family: var(--serif);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            color: var(--primary-sage);
-        }
+    .price-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 12px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
 
-        .hero p {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
+    .price-card:hover {
+      border-color: var(--gold-accent);
+      background: rgba(212, 175, 55, 0.05);
+      transform: translateY(-5px);
+    }
 
-        .btn-main {
-            display: inline-block;
-            border: 1px solid var(--primary-sage);
-            color: var(--primary-sage);
-            padding: 15px 40px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            transition: 0.4s;
-        }
+    .duration-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
 
-        .btn-main:hover {
-            background: var(--primary-sage);
-            color: #fff;
-        }
+    .price-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
 
-        /* SECTION TITLES */
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-family: var(--serif); font-size: 2rem; color: var(--primary-sage); }
-        .line { width: 40px; height: 1px; background: var(--accent-blue); margin: 15px auto; }
+    .amount {
+      font-size: 1.8rem;
+      color: var(--gold-accent);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
 
-        /* GALLERY */
-        .gallery { padding: 6rem 8%; background: #fff; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
+    .features-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 25px;
+      text-align: center;
+    }
 
-        .card { text-align: center; }
-        .img-box { 
-            background: var(--bg-cream); 
-            aspect-ratio: 4/5; 
-            margin-bottom: 1.5rem; 
-            overflow: hidden;
-        }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
-        .card:hover img { transform: scale(1.05); }
+    .features-list li {
+      margin-bottom: 8px;
+    }
 
-        .card h3 { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 5px; }
-        .card p { font-size: 0.85rem; text-transform: uppercase; color: var(--primary-sage); letter-spacing: 1px; }
+    /* --- BUTTONS (IDENTIK DENGAN INDEX) --- */
+    .button {
+      display: inline-block;
+      width: 100%;
+      max-width: 250px;
+      padding: 14px 20px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--gold-accent);
+      border-radius: 8px;
+      color: var(--gold-light);
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
 
-        /* TESTIMONIALS SECTION */
-        .testimonials {
-            padding: 8rem 8%;
-            background-color: var(--bg-cream);
-        }
+    .button:hover {
+      background: var(--gold-accent);
+      color: var(--bg-dark);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
 
-        .testi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .btn-featured {
+      background: var(--gold-accent) !important;
+      color: var(--bg-dark) !important;
+      font-weight: bold;
+    }
 
-        .testi-item {
-            background: #fff;
-            padding: 40px;
-            text-align: left;
-            border: 1px solid #eee;
-            transition: 0.3s;
-        }
+    .badge {
+      position: absolute;
+      top: -12px;
+      background: var(--gold-accent);
+      color: var(--bg-dark);
+      padding: 4px 15px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
-        .testi-item:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-5px);
-        }
+    .back-link {
+      margin-top: 30px;
+      display: inline-block;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.85rem;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
 
-        .quote-icon {
-            font-family: var(--serif);
-            font-size: 3rem;
-            color: var(--accent-blue);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
+    .back-link:hover { opacity: 1; }
 
-        .testi-text {
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
+    footer {
+      margin-top: auto;
+      padding: 30px;
+      font-size: 0.75rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
 
-        .testi-author {
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary-sage);
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        /* FOOTER & ADDRESS */
-        footer {
-            padding: 5rem 8%;
-            background: #fff;
-            text-align: center;
-        }
-
-        .address {
-            font-size: 0.85rem;
-            max-width: 500px;
-            margin: 20px auto;
-            color: var(--text-dark);
-            opacity: 0.7;
-        }
-
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-sage);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            z-index: 100;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            nav { padding: 1.5rem 5%; }
-            .testi-item { padding: 30px; }
-        }
-    </style>
+    /* --- RESPONSIVE --- */
+    @media (min-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .price-card:last-child {
+        grid-column: span 3; /* Mentorship dibuat lebar penuh di bwh */
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Dandelion Bouquet</div>
-        <ul>
-            <li><a href="#koleksi">Gallery</a></li>
-            <li><a href="#testimoni" style="margin-left: 20px;">Review</a></li>
+  <div class="container">
+    <h1>Investasi Perubahan</h1>
+    <div class="subtitle">Pilih Sesi Navigasimu</div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <span class="duration-label">22 Menit</span>
+        <h2>The Spark</h2>
+        <div class="amount">Rp 199.000</div>
+        <ul class="features-list">
+          <li>Kejelasan instan masalah mendesak</li>
+          <li>Chat / Telepon</li>
+          <li>Insight & Arahan Cepat</li>
         </ul>
-    </nav>
+        <a class="button" href="https://wa.me/6281523738172?text=Halo%20Fauzan,%20saya%20ingin%20pesan%20sesi%20The%20Spark">Booking Sesi</a>
+      </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Handmade & Custom<br>Bouquets</h1>
-            <p>"Bouquet for Every Moment"</p>
-            <a href="#koleksi" class="btn-main">Lihat Koleksi</a>
-        </div>
-    </section>
+      <div class="price-card">
+        <span class="duration-label">44 Menit</span>
+        <h2>Deep Alignment</h2>
+        <div class="amount">Rp 444.000</div>
+        <ul class="features-list">
+          <li>Pemetaan Pola & Akar Masalah</li>
+          <li>Tarot + Analisis Numerologi</li>
+          <li>Sesi Intensif (Telepon/videocallreading)</li>
+        </ul>
+        <a class="button" href="https://wa.me/6281523738172?text=Halo%20Fauzan,%20saya%20ingin%20pesan%20sesi%20Deep%20Alignment">Booking Sesi</a>
+      </div>
 
-    <section id="koleksi" class="gallery">
-        <div class="section-title">
-            <h2>Our Specialities</h2>
-            <div class="line"></div>
-        </div>
-        
-        <div class="grid">
-            <div class="card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1591880911020-d3494122b6a2?q=80&w=800" alt="Money Bouquet"></div>
-                <h3>Money Bouquet</h3>
-                <p>Custom & Elegant</p>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800" alt="Flower Bouquet"></div>
-                <h3>Flower Bouquet</h3>
-                <p>Fresh & Artificial</p>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1582910814900-24424e7c7b91?q=80&w=800" alt="Snack Bouquet"></div>
-                <h3>Snack Bouquet</h3>
-                <p>For Every Celebration</p>
-            </div>
-        </div>
-    </section>
+      <div class="price-card">
+        <span class="badge">Recommended</span>
+        <span class="duration-label">30 Hari Pendampingan</span>
+        <h2>Metamorphosis</h2>
+        <div class="amount">Rp 2.222.000</div>
+        <ul class="features-list">
+          <li>4 Sesi Eksklusif (66 Menit/Sesi)</li>
+          <li>Daily Chat Support & Monitoring</li>
+          <li>Personalized Numerology Worksheet</li>
+        </ul>
+        <a class="button btn-featured" href="https://wa.me/6281523738172?text=Halo%20Fauzan,%20saya%20tertarik%20program%20Metamorphosis">Daftar Sekarang</a>
+      </div>
+    </div>
 
-    <section id="testimoni" class="testimonials">
-        <div class="section-title">
-            <h2>Apa Kata Mereka?</h2>
-            <div class="line"></div>
-        </div>
+    <a href="index.html" class="back-link">← Kembali ke Beranda</a>
+  </div>
 
-        <div class="testi-grid">
-            <div class="testi-item">
-                <div class="quote-icon">“</div>
-                <p class="testi-text">Buketnya rapi banget dan detailnya premium. Padahal pesan dadakan tapi hasilnya tetap maksimal. Sangat recommended di Malunda!</p>
-                <p class="testi-author">— Sarah, Pelanggan Setia</p>
-            </div>
-
-            <div class="testi-item">
-                <div class="quote-icon">“</div>
-                <p class="testi-text">Suka banget sama kombinasi warnanya. Seller-nya ramah dan komunikatif buat diskusi model yang saya mau.</p>
-                <p class="testi-author">— Ahmad, Majene</p>
-            </div>
-
-            <div class="testi-item">
-                <div class="quote-icon">“</div>
-                <p class="testi-text">Money bouquet-nya elegan, nggak kelihatan norak. Cocok buat hadiah wisuda atau lamaran.</p>
-                <p class="testi-author">— Rina, Lingk. Sasende</p>
-            </div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/628xxxxxxxx" class="wa-float" target="_blank">Order via WhatsApp</a>
-
-    <footer>
-        <div class="logo" style="margin-bottom: 10px;">Dandelion Bouquet</div>
-        <p class="address">
-            Jln. Bambu Runcing, Lingk. Sasende, Kec. Malunda, <br>
-            Majene, Sulawesi Barat, 91453
-        </p>
-        <p style="font-size: 0.7rem; margin-top: 30px; opacity: 0.5;">&copy; 2026 Dandelion Bouquet. Crafted with Love.</p>
-    </footer>
+  <footer>2025 Fauzan | Teman Perubahan</footer>
 
 </body>
 </html>
